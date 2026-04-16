@@ -1,2 +1,4 @@
-export { ProjectsSection } from "./components/projects-section";
-export { ProjectCard } from "./components/project-card";
+export * from "./components/project-hero";
+export * from "./components/project-list";
+export * from "./components/project-list-item";
+export * from "./constants/projects";

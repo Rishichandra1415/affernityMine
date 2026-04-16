@@ -122,7 +122,7 @@ export function MainNavbar() {
             isScrolled ? "border-zinc-200 dark:border-zinc-800" : "border-white/20"
           )}>
             <Button className="rounded-full px-6 font-semibold shadow-md transition-transform hover:scale-105 active:scale-95" asChild>
-              <Link href="/contact-us">Get a Quote</Link>
+              <Link href="/get-a-quote">Get a Quote</Link>
             </Button>
           </div>
         </div>
@@ -163,7 +163,7 @@ export function MainNavbar() {
                 ))}
                 <div className="pt-6">
                   <Button className="w-full justify-between rounded-xl py-6 text-base font-semibold shadow-md" asChild onClick={() => setIsOpen(false)}>
-                    <Link href="/contact-us">
+                    <Link href="/get-a-quote">
                       Get a Quote <MoveRight className="h-5 w-5" />
                     </Link>
                   </Button>

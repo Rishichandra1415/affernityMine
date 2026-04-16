@@ -34,6 +34,8 @@ export const mainNavigation: NavItemWithChildren[] = [
       { label: "Swimming Pool Construction", href: "/infrastructure/swimming-pool" },
     ],
   },
+  { label: "Projects", href: "/projects" },
+
 
   { label: "Enquiry", href: "/enquiry" },
   { label: "Contact Us", href: "/contact-us" },

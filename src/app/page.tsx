@@ -1,7 +1,13 @@
-import { HeroSection, StatsSection, ProcessSection, WhyChooseUs, EnquirySection } from "@/features/home";
-import { ServicesSection } from "@/features/services";
-import { ProjectsSection } from "@/features/projects";
-import { TestimonialsSection } from "@/features/testimonials";
+import { 
+  HeroSection, 
+  StatsSection, 
+  ProcessSection, 
+  WhyChooseUs, 
+  EnquirySection, 
+  ServicesSection, 
+  ProjectsSection, 
+  TestimonialsSection 
+} from "@/features/home";
 
 export default function Home() {
   return (
