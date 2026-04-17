@@ -13,36 +13,42 @@ const services = [
     description: "High-performance indoor courts featuring professional-grade synthetic and acrylic surfaces.",
     items: ["Synthetic Athletic Surfaces", "Acrylic Flooring", "Standard Markings"],
     image: "/images/serviceimage/badminton.png",
+    href: "/infrastructure/badminton-court",
   },
   {
     title: "Tennis Courts",
     description: "ITF-approved tennis court solutions designed for durability, player safety, and professional play.",
     items: ["ITF Certified", "Synthetic Turf", "Hard-Court Systems"],
     image: "/images/serviceimage/tennis.png",
+    href: "/infrastructure/lawn-tennis-court",
   },
   {
     title: "Basketball Courts",
     description: "Premium indoor and outdoor arenas with professional maple wood and synthetic flooring.",
     items: ["Maple Hardwood", "Indoor Stadiums", "Shock Absorption"],
     image: "/images/serviceimage/basketball.png",
+    href: "/infrastructure/basketball-court",
   },
   {
     title: "Athletic Tracks",
     description: "All-weather IAAF-certified running tracks built for speed, safety, and peak performance.",
     items: ["IAAF Certified", "EPDM Surfaces", "Professional Lanes"],
     image: "/images/serviceimage/track.png",
+    href: "/infrastructure/running-track",
   },
   {
     title: "Swimming Pools",
     description: "State-of-the-art pool construction including advanced filtration systems and olympic tiling.",
     items: ["Olympic Standards", "Filtration Systems", "Waterproofing"],
     image: "/images/serviceimage/pool.png",
+    href: "/infrastructure/swimming-pool",
   },
   {
     title: "Gym Flooring",
     description: "Heavy-duty rubber and professional flooring designed for impact resistance and longevity.",
     items: ["Premium Rubber", "Impact Resistant", "Weight Areas"],
     image: "/images/serviceimage/gym.png",
+    href: "/infrastructure/gym-flooring",
   },
 ];
 
@@ -50,8 +56,7 @@ export function ServicesSection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    // Section ko compact karne ke liye py-24 se py-16 aur sm:py-20 kar diya hai
-    <section className="relative bg-[#f0faf5] py-16 sm:py-20 dark:bg-zinc-950">
+    <section className="relative bg-[#f0faf5] py-10 sm:py-14 dark:bg-zinc-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header Section */}
@@ -68,11 +73,6 @@ export function ServicesSection() {
             <p className="max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg dark:text-zinc-400">
               From professional arenas to athletic tracks, we deliver premium sports infrastructure that meets international standards.
             </p>
-          </div>
-          <div className="hidden lg:block">
-            <Button size="lg" className="h-14 rounded-full px-8 text-base font-bold shadow-xl transition-all hover:scale-105 active:scale-95" asChild>
-              <Link href="/products">View All Services</Link>
-            </Button>
           </div>
         </div>
 
@@ -117,23 +117,28 @@ export function ServicesSection() {
                     isActive ? "translate-y-0 opacity-100 delay-100" : "translate-y-10 opacity-0 pointer-events-none"
                   )}
                 >
-                  <div className="max-w-2xl">
-                    <h3 className="mb-2 text-2xl font-bold text-white lg:text-3xl">
+                  <Link href={service.href} className="block max-w-2xl group/link">
+                    <h3 className="mb-2 text-2xl font-bold text-white lg:text-3xl group-hover/link:text-primary transition-colors">
                       {service.title}
                     </h3>
                     <p className="mb-4 text-sm text-zinc-200 lg:text-base line-clamp-2">
                       {service.description}
                     </p>
 
-                    {/* Items Tags - Thode compact sizes me */}
-                    <div className="flex flex-wrap gap-2">
+                    {/* Items Tags */}
+                    <div className="flex flex-wrap gap-2 mb-4">
                       {service.items.map((item, i) => (
                         <span key={i} className="rounded-md bg-white/10 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm border border-white/20">
                           {item}
                         </span>
                       ))}
                     </div>
-                  </div>
+
+                    {/* Explore CTA */}
+                    <div className="inline-flex items-center gap-2 text-sm font-bold text-primary transition-all group-hover/link:gap-3">
+                      Explore <MoveRight className="h-4 w-4" />
+                    </div>
+                  </Link>
                 </div>
 
                 {/* Collapsed State Content (Vertical Text) */}
@@ -162,7 +167,7 @@ export function ServicesSection() {
         {/* Mobile View All Button */}
         <div className="mt-10 flex justify-center lg:hidden">
           <Button size="lg" className="h-12 w-full rounded-2xl text-base font-bold sm:w-auto" asChild>
-            <Link href="/products">
+            <Link href="/infrastructure">
               View All Services <MoveRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>

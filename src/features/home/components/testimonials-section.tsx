@@ -47,7 +47,7 @@ export function TestimonialsSection() {
   const secondRow = testimonials.slice(3, 6);
 
   return (
-    <section className="relative overflow-hidden bg-[#f0faf5] pt-16 pb-24 sm:pt-20 sm:pb-32">
+    <section className="relative overflow-hidden bg-[#f0faf5] pt-10 pb-12 sm:pt-12 sm:pb-16">
       {/* Decorative background glow */}
       <div className="absolute -left-20 top-20 h-96 w-96 rounded-full bg-primary/5 blur-[100px]" />
       <div className="absolute -right-20 bottom-20 h-96 w-96 rounded-full bg-primary/5 blur-[100px]" />

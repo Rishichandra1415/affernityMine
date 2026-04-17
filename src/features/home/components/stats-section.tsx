@@ -51,7 +51,7 @@ const stats = [
 
 export function StatsSection() {
   return (
-    <section className="relative z-20 w-full bg-white border-y border-zinc-100 py-12 dark:bg-zinc-950 dark:border-zinc-800">
+    <section className="relative z-20 w-full bg-white border-y border-zinc-100 py-8 dark:bg-zinc-950 dark:border-zinc-800">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           {stats.map((stat, index) => (

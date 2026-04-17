@@ -59,7 +59,7 @@ const reasons = [
 export function WhyChooseUs() {
   return (
     // Top padding kam kar di hai (pt-12) taaki section header upar se chipka rahe
-    <section className="relative overflow-hidden bg-white pt-12 pb-20 dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-800">
+    <section className="relative overflow-hidden bg-white pt-8 pb-12 dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-800">
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header Section - Margin bottom kam kiya hai (mb-12) */}

@@ -76,11 +76,11 @@ const steps = [
 
 export function ProcessSection() {
   return (
-    <section className="relative overflow-hidden bg-[#fafafa] py-24 sm:py-32 dark:bg-zinc-950">
+    <section className="relative overflow-hidden bg-[#fafafa] py-12 sm:py-16 dark:bg-zinc-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="flex flex-col items-center text-center space-y-4 mb-24 lg:mb-32">
+        <div className="flex flex-col items-center text-center space-y-4 mb-10 lg:mb-14">
           <div className="inline-flex items-center space-x-2 rounded-full border border-primary/30 bg-primary/10 px-5 py-2 backdrop-blur-md">
             <span className="text-sm font-black uppercase tracking-widest text-primary">
               Our Journey

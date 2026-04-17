@@ -15,7 +15,7 @@ import Image from "next/image";
 
 export function EnquirySection() {
   return (
-    <section className="relative overflow-hidden bg-white py-24 sm:py-32 dark:bg-zinc-950">
+    <section className="relative overflow-hidden bg-white py-12 sm:py-16 dark:bg-zinc-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[3rem] bg-zinc-900 shadow-2xl lg:flex">
           
