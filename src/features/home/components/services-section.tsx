@@ -165,13 +165,7 @@ export function ServicesSection() {
         </div>
 
         {/* Mobile View All Button */}
-        <div className="mt-10 flex justify-center lg:hidden">
-          <Button size="lg" className="h-12 w-full rounded-2xl text-base font-bold sm:w-auto" asChild>
-            <Link href="/infrastructure">
-              View All Services <MoveRight className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
+    
       </div>
     </section>
   );
