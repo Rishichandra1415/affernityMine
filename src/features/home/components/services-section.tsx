@@ -50,6 +50,20 @@ const services = [
     image: "/images/serviceimage/gym.png",
     href: "/infrastructure/gym-flooring",
   },
+  {
+    title: "Children's Park",
+    description: "Safe and innovative play area equipment including slides, swings, and multi-play stations.",
+    items: ["Safe Play Areas", "EPDM Flooring", "Climbing Structures"],
+    image: "/images/serviceimage/children-park.png",
+    href: "/infrastructure/children-park",
+  },
+  {
+    title: "Outdoor Gym",
+    description: "Professional-grade outdoor fitness equipment designed for community parks and open spaces.",
+    items: ["Weather Resistant", "Low Maintenance", "Community Health"],
+    image: "/images/serviceimage/outdoor-gym.png",
+    href: "/infrastructure/outdoor-gym",
+  },
 ];
 
 export function ServicesSection() {

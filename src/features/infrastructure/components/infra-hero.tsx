@@ -10,7 +10,7 @@ interface InfraHeroProps {
 
 export function InfraHero({ infra }: InfraHeroProps) {
   return (
-    <section className="relative h-[80vh] min-h-[600px] w-full overflow-hidden bg-zinc-950">
+    <section className="relative h-[55vh] min-h-[450px] w-full overflow-hidden bg-zinc-950">
       <motion.div 
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
@@ -47,7 +47,7 @@ export function InfraHero({ infra }: InfraHeroProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-5xl font-black tracking-tight text-white sm:text-7xl lg:text-8xl"
+              className="text-4xl font-black tracking-tight text-white sm:text-6xl lg:text-7xl"
             >
               {infra.title}
             </motion.h1>

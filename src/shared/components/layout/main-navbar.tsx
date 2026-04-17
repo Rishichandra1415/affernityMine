@@ -39,15 +39,20 @@ export function MainNavbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isHomePage = pathname === "/";
+  // Force scrolled state (solid background) on subpages for better visibility
+  const displaySolid = isScrolled || !isHomePage;
+
   return (
     <header 
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-300",
-        isScrolled 
-          ? "border-b border-zinc-200/50 bg-white/80 backdrop-blur-xl dark:border-zinc-800/50 dark:bg-zinc-950/80 shadow-sm" 
+        displaySolid 
+          ? "border-b border-zinc-200/50 bg-white/90 backdrop-blur-xl dark:border-zinc-800/50 dark:bg-zinc-950/90 shadow-lg" 
           : "bg-transparent border-transparent"
       )}
     >
+
       <div className="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="relative flex items-center space-x-2 transition-transform hover:scale-105">
@@ -72,8 +77,8 @@ export function MainNavbar() {
                       <NavigationMenuTrigger 
                         className={cn(
                           "h-10 bg-transparent text-sm font-semibold transition-colors",
-                          isScrolled 
-                            ? "hover:bg-zinc-100 hover:text-primary data-[state=open]:bg-zinc-100 data-[state=open]:text-primary dark:hover:bg-zinc-800 dark:data-[state=open]:bg-zinc-800" 
+                          displaySolid 
+                            ? "text-zinc-900 hover:bg-zinc-100 hover:text-primary data-[state=open]:bg-zinc-100 data-[state=open]:text-primary dark:text-white dark:hover:bg-zinc-800 dark:data-[state=open]:bg-zinc-800" 
                             : "text-white hover:text-primary data-[state=open]:text-primary"
                         )}
                       >
@@ -98,11 +103,11 @@ export function MainNavbar() {
                         className={cn(
                           navigationMenuTriggerStyle(),
                           "h-10 bg-transparent text-sm font-medium transition-colors",
-                          isScrolled
-                            ? "hover:bg-zinc-100 hover:text-primary dark:hover:bg-zinc-800"
+                          displaySolid
+                            ? "text-zinc-900 hover:bg-zinc-100 hover:text-primary dark:text-white dark:hover:bg-zinc-800"
                             : "text-white hover:text-primary",
                           pathname === item.href && (
-                            isScrolled 
+                            displaySolid 
                               ? "text-primary font-bold bg-zinc-50 dark:bg-zinc-800/50" 
                               : "text-primary font-bold"
                           )
@@ -119,7 +124,7 @@ export function MainNavbar() {
 
           <div className={cn(
             "ml-4 pl-4 border-l transition-colors duration-300",
-            isScrolled ? "border-zinc-200 dark:border-zinc-800" : "border-white/20"
+            displaySolid ? "border-zinc-200 dark:border-zinc-800" : "border-white/20"
           )}>
             <Button className="rounded-full px-6 font-semibold shadow-md transition-transform hover:scale-105 active:scale-95" asChild>
               <Link href="/get-a-quote">Get a Quote</Link>
@@ -136,7 +141,7 @@ export function MainNavbar() {
                 size="icon" 
                 className={cn(
                   "h-10 w-10 transition-colors",
-                  isScrolled ? "text-zinc-600 dark:text-zinc-300" : "text-white hover:bg-white/10"
+                  displaySolid ? "text-zinc-600 dark:text-zinc-300" : "text-white hover:bg-white/10"
                 )}
               >
                 <Menu className="h-6 w-6" />

@@ -47,12 +47,13 @@ export function TestimonialsSection() {
   const secondRow = testimonials.slice(3, 6);
 
   return (
-    <section className="relative overflow-hidden bg-[#f0faf5] pt-10 pb-12 sm:pt-12 sm:pb-16">
+    <section className="relative overflow-hidden bg-[#f0faf5] py-10 sm:py-12">
       {/* Decorative background glow */}
       <div className="absolute -left-20 top-20 h-96 w-96 rounded-full bg-primary/5 blur-[100px]" />
       <div className="absolute -right-20 bottom-20 h-96 w-96 rounded-full bg-primary/5 blur-[100px]" />
 
-      <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <div className="container relative z-20 mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+
         <div className="flex flex-col items-center text-center space-y-4">
           <div className="inline-flex items-center space-x-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 backdrop-blur-md">
             <span className="text-xs font-bold uppercase tracking-widest text-primary">

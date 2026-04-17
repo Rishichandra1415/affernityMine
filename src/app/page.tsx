@@ -6,8 +6,11 @@ import {
   EnquirySection,
   ServicesSection,
   ProjectsSection,
-  TestimonialsSection
+  TestimonialsSection,
+  ClientsSection,
+  MissionVisionSection
 } from "@/features/home";
+
 
 export default function Home() {
   return (
@@ -16,11 +19,14 @@ export default function Home() {
       <WhyChooseUs />
       <ServicesSection />
 
+
       <StatsSection />
       <ProcessSection />
       <ProjectsSection />
       <TestimonialsSection />
+      <ClientsSection />
       <EnquirySection />
+
     </main>
   );
 }

@@ -67,10 +67,11 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <section className="relative bg-[#f0faf5] pt-12 pb-10 sm:pt-16 sm:pb-12 dark:bg-zinc-950">
+    <section className="relative bg-[#f0faf5] py-8 sm:py-12 dark:bg-zinc-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-10 lg:flex-row mb-10 lg:mb-14">
-          <div className="max-w-3xl space-y-6 text-center lg:text-left">
+        <div className="flex flex-col items-center justify-between gap-6 lg:flex-row mb-8 lg:mb-10">
+          <div className="max-w-3xl space-y-4 text-center lg:text-left">
+
             <div className="inline-flex items-center space-x-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 backdrop-blur-md">
               <span className="text-xs font-bold uppercase tracking-widest text-primary">
                 Our Portfolio

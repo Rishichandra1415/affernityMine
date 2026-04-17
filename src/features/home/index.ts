@@ -9,3 +9,5 @@ export { ProjectsSection } from "./components/projects-section";
 export { ProjectCard } from "./components/project-card";
 export { TestimonialsSection } from "./components/testimonials-section";
 export { TestimonialCard } from "./components/testimonial-card";
+export { ClientsSection } from "./components/clients-section";
+export { MissionVisionSection } from "./components/mission-vision-section";

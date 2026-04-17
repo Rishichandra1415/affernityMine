@@ -15,7 +15,7 @@ import Image from "next/image";
 
 export function EnquirySection() {
   return (
-    <section className="relative overflow-hidden bg-white py-12 sm:py-16 dark:bg-zinc-950">
+    <section className="relative overflow-hidden bg-white py-10 sm:py-12 dark:bg-zinc-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-[3rem] bg-zinc-900 shadow-2xl lg:flex">
           
@@ -29,7 +29,7 @@ export function EnquirySection() {
             />
             <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/40 to-transparent" />
             
-            <div className="relative z-10 flex h-full flex-col justify-center p-12 lg:p-20 space-y-8">
+            <div className="relative z-10 flex h-full flex-col justify-center p-10 lg:p-14 space-y-6">
               <div className="inline-flex items-center space-x-2 rounded-full bg-primary/20 px-4 py-1.5 backdrop-blur-md">
                 <span className="text-xs font-bold uppercase tracking-widest text-primary">
                   Let's Connect
@@ -60,7 +60,7 @@ export function EnquirySection() {
           </div>
 
           {/* Right Side: Contact Form */}
-          <div className="relative w-full lg:w-1/2 bg-white p-12 lg:p-20 dark:bg-zinc-900/50 backdrop-blur-sm">
+          <div className="relative w-full lg:w-1/2 bg-white p-10 lg:p-14 dark:bg-zinc-900/50 backdrop-blur-sm">
             <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 <div className="space-y-2">
