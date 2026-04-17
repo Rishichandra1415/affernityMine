@@ -53,9 +53,9 @@ export function MainNavbar() {
       )}
     >
 
-      <div className="container mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className="container relative mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="relative flex items-center space-x-2 transition-transform hover:scale-105">
+        <Link href="/" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 lg:static lg:translate-x-0 lg:translate-y-0 flex items-center transition-transform hover:scale-105">
           <Image
             src="https://aaffinitysportsinfra.com/img/logo_aaffinitysports.png"
             alt="Aaffinity Sports Infra"
@@ -128,14 +128,14 @@ export function MainNavbar() {
           )}>
             <Button className="rounded-full px-6 font-semibold shadow-md transition-transform hover:scale-105 active:scale-95 gap-2" asChild>
               <a href="/AaffinitySportsInfraCompanyProfile (1) (2).pdf" download target="_blank" rel="noopener noreferrer">
-                Download Profile <Download className="h-4 w-4 hidden md:inline-block" />
+                Download Brochure <Download className="h-4 w-4 hidden md:inline-block" />
               </a>
             </Button>
           </div>
         </div>
 
         {/* Mobile Navigation Trigger */}
-        <div className="flex items-center lg:hidden">
+        <div className="flex items-center ml-auto lg:hidden">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
               <Button 
@@ -150,8 +150,9 @@ export function MainNavbar() {
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] p-0 sm:w-[400px] border-l dark:border-zinc-800">
-              <SheetHeader className="border-b border-zinc-200 p-6 text-left dark:border-zinc-800">
+            <SheetContent side="right" className="flex flex-col w-[300px] p-0 sm:w-[400px] border-l dark:border-zinc-800">
+              <SheetHeader className="shrink-0 border-b border-zinc-200 p-6 text-left dark:border-zinc-800">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <Image
                   src="https://aaffinitysportsinfra.com/img/logo_aaffinitysports.png"
                   alt="Aaffinity Sports Infra"
@@ -160,22 +161,24 @@ export function MainNavbar() {
                   className="h-8 w-auto object-contain"
                 />
               </SheetHeader>
-              <nav className="flex flex-col space-y-1 p-6">
-                {mainNavigation.map((item) => (
-                  <MobileNavItem
-                    key={item.label}
-                    item={item}
-                    setIsOpen={setIsOpen}
-                  />
-                ))}
-                <div className="pt-6">
-                  <Button className="w-full justify-between rounded-xl py-6 text-base font-semibold shadow-md" asChild onClick={() => setIsOpen(false)}>
-                    <a href="/AaffinitySportsInfraCompanyProfile (1) (2).pdf" download target="_blank" rel="noopener noreferrer">
-                      Download Profile <Download className="h-5 w-5" />
-                    </a>
-                  </Button>
-                </div>
-              </nav>
+              <div className="flex-1 overflow-y-auto">
+                <nav className="flex flex-col space-y-1 p-6">
+                  {mainNavigation.map((item) => (
+                    <MobileNavItem
+                      key={item.label}
+                      item={item}
+                      setIsOpen={setIsOpen}
+                    />
+                  ))}
+                  <div className="pt-6">
+                    <Button className="w-full justify-between rounded-xl py-6 text-base font-semibold shadow-md" asChild onClick={() => setIsOpen(false)}>
+                      <a href="/AaffinitySportsInfraCompanyProfile (1) (2).pdf" download target="_blank" rel="noopener noreferrer">
+                        Download Brochure <Download className="h-5 w-5" />
+                      </a>
+                    </Button>
+                  </div>
+                </nav>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
