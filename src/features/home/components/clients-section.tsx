@@ -35,12 +35,12 @@ export function ClientsSection() {
           {displayClients.map((client, index) => (
             <div
               key={index}
-              className="flex h-24 w-56 items-center justify-center rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 px-10 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-105"
+              className="flex h-24 sm:h-28 w-56 sm:w-64 items-center justify-center rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-100 dark:border-zinc-800 px-6 shadow-sm transition-all duration-300 hover:shadow-md hover:scale-105"
             >
               <img
                 src={client.logo}
                 alt={client.name}
-                className="max-h-16 w-full object-contain transition-all duration-500"
+                className="max-h-20 w-full object-contain transition-all duration-500 group-hover:scale-105"
               />
             </div>
           ))}

@@ -28,14 +28,10 @@ const footerData = {
       },
       {
         icon: Phone,
-        text: "+91 95343 00090",
+        text: "+91 95343 00090 / +91 95400 04206",
         href: "tel:+919534300090",
       },
-      {
-        icon: Phone,
-        text: "+91 95400 04206",
-        href: "tel:+919540004206",
-      },
+    
       {
         icon: Mail,
         text: "enquire.affinity@gmail.com",
@@ -46,10 +42,10 @@ const footerData = {
   products: {
     title: "Our Products",
     items: [
-      { name: "Badminton Court", href: "/services/badminton" },
-      { name: "Tennis Court", href: "/services/tennis" },
-      { name: "Basketball Court", href: "/services/basketball" },
-      { name: "Volleyball Court", href: "/services/volleyball" },
+      { name: "Badminton Court", href: "/infrastructure/badminton-court" },
+      { name: "Tennis Court", href: "/infrastructure/lawn-tennis-court" },
+      { name: "Basketball Court", href: "/infrastructure/basketball-court" },
+      { name: "Wooden Flooring", href: "/products/wooden-flooring" },
       { name: "Squash Court", href: "/infrastructure/squash-padel-courts" },
       { name: "Children Play Area", href: "/infrastructure/children-park" },
       { name: "Outdoor Gym", href: "/infrastructure/outdoor-gym" },

@@ -24,24 +24,25 @@ interface FormContainerProps {
 
 function FormContainer({ children, title, subtitle }: FormContainerProps) {
   return (
-    <section className="relative overflow-hidden bg-zinc-50 py-24 sm:py-32 dark:bg-zinc-900/50">
+    <section className="relative overflow-hidden bg-zinc-950 py-24 sm:py-32">
       <div className="absolute inset-0 z-0">
         <div 
-          className="absolute inset-0 bg-cover bg-center opacity-[0.03] dark:opacity-[0.05] xl:bg-fixed" 
+          className="absolute inset-0 bg-cover bg-center opacity-40 xl:bg-fixed mix-blend-luminosity" 
           style={{ backgroundImage: `url('/images/projects/track.png')` }}
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/80 via-zinc-950/60 to-zinc-950/90" />
       </div>
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl text-center mb-16">
-          <h2 className="text-3xl font-black tracking-tight text-zinc-900 sm:text-5xl dark:text-white">
+        <div className="mx-auto max-w-4xl text-center mb-16 backdrop-blur-sm bg-zinc-950/20 py-6 rounded-3xl border border-white/5">
+          <h2 className="text-3xl font-black tracking-tight text-white sm:text-5xl drop-shadow-xl">
             {title}
           </h2>
-          <p className="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
+          <p className="mt-4 text-lg text-zinc-300 drop-shadow-md">
             {subtitle}
           </p>
         </div>
         
-        <div className="mx-auto max-w-3xl rounded-[3rem] bg-white p-8 shadow-2xl shadow-zinc-200/50 sm:p-12 lg:p-16 dark:bg-zinc-950 dark:shadow-none dark:border dark:border-white/5">
+        <div className="mx-auto max-w-3xl rounded-[3rem] bg-white/95 backdrop-blur-xl p-8 shadow-[0_0_50px_-12px_rgba(0,0,0,0.5)] sm:p-12 lg:p-16 dark:bg-zinc-950/95 dark:shadow-none dark:border dark:border-white/10">
           {children}
         </div>
       </div>
