@@ -1,12 +1,12 @@
 import { notFound } from "next/navigation";
-import { 
-  productsData, 
-  ProductHero, 
-  GallerySection, 
-  ProductFeatures, 
-  ProductSpecTable, 
-  ProductApplications, 
-  ProductCTA 
+import {
+  productsData,
+  ProductHero,
+  GallerySection,
+  ProductFeatures,
+  ProductSpecTable,
+  ProductApplications,
+  ProductCTA
 } from "@/features/products";
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {

@@ -1,7 +1,11 @@
-import { ServiceCard } from "./service-card";
+"use client";
+
+import { useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/shared/components/ui/button";
 import Link from "next/link";
-import { MoveRight } from "lucide-react";
+import { MoveRight, ChevronRight } from "lucide-react";
+import { cn } from "@/shared/lib/utils";
 
 const services = [
   {
@@ -43,41 +47,121 @@ const services = [
 ];
 
 export function ServicesSection() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
-    <section className="relative bg-[#f0faf5] py-24 sm:py-32 dark:bg-zinc-950">
+    // Section ko compact karne ke liye py-24 se py-16 aur sm:py-20 kar diya hai
+    <section className="relative bg-[#f0faf5] py-16 sm:py-20 dark:bg-zinc-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+
         {/* Header Section */}
-        <div className="flex flex-col items-center justify-between gap-10 lg:flex-row">
-          <div className="max-w-3xl space-y-6 text-center lg:text-left">
+        <div className="flex flex-col items-center justify-between gap-6 lg:flex-row">
+          <div className="max-w-3xl space-y-4 text-center lg:text-left">
             <div className="inline-flex items-center space-x-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 backdrop-blur-md">
               <span className="text-xs font-semibold uppercase tracking-widest text-primary">
-                Explore What We Build
+                Explore Our Services
               </span>
             </div>
-            <h2 className="text-4xl font-extrabold tracking-tight text-zinc-900 sm:text-6xl dark:text-zinc-50">
+            <h2 className="text-4xl font-extrabold tracking-tight text-zinc-900 sm:text-5xl dark:text-zinc-50">
               World-Class <span className="text-primary tracking-tighter">Sports Facilities</span>
             </h2>
-            <p className="max-w-2xl text-lg leading-relaxed text-zinc-600 sm:text-xl dark:text-zinc-400">
+            <p className="max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg dark:text-zinc-400">
               From professional arenas to athletic tracks, we deliver premium sports infrastructure that meets international standards.
             </p>
           </div>
           <div className="hidden lg:block">
-            <Button size="lg" className="h-16 rounded-full px-10 text-lg font-bold shadow-xl transition-all hover:scale-105 active:scale-95" asChild>
+            <Button size="lg" className="h-14 rounded-full px-8 text-base font-bold shadow-xl transition-all hover:scale-105 active:scale-95" asChild>
               <Link href="/products">View All Services</Link>
             </Button>
           </div>
         </div>
 
-        {/* Services Grid */}
-        <div className="mt-20 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <ServiceCard key={index} {...service} />
-          ))}
+        {/* Stack View UI - Compact Height (450px mobile, 500px desktop) */}
+        <div className="mt-12 flex h-[450px] w-full flex-col gap-3 lg:h-[500px] lg:flex-row lg:gap-3">
+          {services.map((service, index) => {
+            const isActive = activeIndex === index;
+
+            return (
+              <motion.div
+                key={index}
+                layout
+                onHoverStart={() => setActiveIndex(index)}
+                onClick={() => setActiveIndex(index)}
+                className={cn(
+                  "group relative cursor-pointer overflow-hidden rounded-[2rem] transition-all duration-500 ease-in-out bg-zinc-900",
+                  isActive
+                    ? "flex-[5] lg:flex-[6] shadow-2xl"
+                    : "flex-[1] shadow-md"
+                )}
+              >
+                {/* Background Image - Ab ye hamesha dikhegi, blackout hata diya gaya hai */}
+                <div
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url(${service.image})` }}
+                />
+
+                {/* Overlays - Inactive me sirf halka transparent black taaki text padh saken, Active me niche dark gradient */}
+                <div
+                  className={cn(
+                    "absolute inset-0 transition-all duration-500",
+                    isActive
+                      ? "bg-gradient-to-t from-black/95 via-black/50 to-transparent"
+                      : "bg-black/30 group-hover:bg-black/20"
+                  )}
+                />
+
+                {/* Active/Expanded State Content */}
+                <div
+                  className={cn(
+                    "absolute bottom-0 left-0 flex h-full w-full flex-col justify-end p-6 lg:p-8 transition-all duration-500",
+                    isActive ? "translate-y-0 opacity-100 delay-100" : "translate-y-10 opacity-0 pointer-events-none"
+                  )}
+                >
+                  <div className="max-w-2xl">
+                    <h3 className="mb-2 text-2xl font-bold text-white lg:text-3xl">
+                      {service.title}
+                    </h3>
+                    <p className="mb-4 text-sm text-zinc-200 lg:text-base line-clamp-2">
+                      {service.description}
+                    </p>
+
+                    {/* Items Tags - Thode compact sizes me */}
+                    <div className="flex flex-wrap gap-2">
+                      {service.items.map((item, i) => (
+                        <span key={i} className="rounded-md bg-white/10 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm border border-white/20">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Collapsed State Content (Vertical Text) */}
+                <div
+                  className={cn(
+                    "absolute inset-0 flex items-center justify-center transition-all duration-500 lg:flex-col lg:items-center lg:justify-end lg:py-8",
+                    isActive ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"
+                  )}
+                >
+                  <div className="flex items-center gap-3 lg:flex-col lg:gap-4">
+                    {/* Icon - Size slightly reduced for compactness */}
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-md border border-white/20">
+                      <ChevronRight className={cn("h-4 w-4", "lg:rotate-90")} />
+                    </div>
+                    {/* Vertical text for desktop, horizontal for mobile */}
+                    <span className="text-base font-bold tracking-widest text-white drop-shadow-md lg:-rotate-180 lg:[writing-mode:vertical-rl]">
+                      {service.title}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Mobile View All Button */}
-        <div className="mt-12 flex justify-center lg:hidden">
-          <Button size="lg" className="h-14 w-full rounded-2xl text-base font-bold sm:w-auto" asChild>
+        <div className="mt-10 flex justify-center lg:hidden">
+          <Button size="lg" className="h-12 w-full rounded-2xl text-base font-bold sm:w-auto" asChild>
             <Link href="/products">
               View All Services <MoveRight className="ml-2 h-5 w-5" />
             </Link>

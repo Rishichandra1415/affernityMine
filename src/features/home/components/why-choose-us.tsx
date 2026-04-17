@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { 
-  Banknote, 
-  Building2, 
-  Leaf, 
-  ShieldCheck, 
-  HardHat, 
-  LifeBuoy 
+import {
+  Banknote,
+  Building2,
+  Leaf,
+  ShieldCheck,
+  HardHat,
+  LifeBuoy
 } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 
@@ -58,52 +58,69 @@ const reasons = [
 
 export function WhyChooseUs() {
   return (
-    <section className="relative overflow-hidden bg-white py-24 sm:py-32 dark:bg-zinc-950">
-      {/* Subtle Background Glows */}
-      <div className="absolute left-0 top-0 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]" />
-      <div className="absolute right-0 bottom-0 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px]" />
-      
+    // Top padding kam kar di hai (pt-12) taaki section header upar se chipka rahe
+    <section className="relative overflow-hidden bg-white pt-12 pb-20 dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-800">
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center text-center space-y-4 mb-20 lg:mb-28">
-          <div className="inline-flex items-center space-x-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 backdrop-blur-md">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">
-              Why Choose Us
-            </span>
-          </div>
-          <h2 className="text-4xl font-black tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl dark:text-zinc-50">
-            A Culture of <span className="text-primary italic">Excellence</span>
-          </h2>
-          <div className="h-1.5 w-24 rounded-full bg-primary/50 mt-4 mx-auto" />
-          <p className="max-w-2xl text-lg text-zinc-600 mt-6 dark:text-zinc-400">
+
+        {/* Header Section - Margin bottom kam kiya hai (mb-12) */}
+        <div className="flex flex-col items-center text-center space-y-3 mb-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50"
+          >
+            A Culture of <span className="text-green-500 italic">Excellence</span>
+          </motion.h2>
+          <motion.div
+            initial={{ width: 0 }}
+            whileInView={{ width: "4rem" }}
+            viewport={{ once: true }}
+            className="h-1 rounded-full bg-zinc-200 dark:bg-zinc-800 mt-1"
+          />
+          <p className="max-w-2xl text-base text-zinc-500 mt-3 dark:text-zinc-400">
             Committed to delivering superior quality and performance in every project.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Dotted Grid Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {reasons.map((reason, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group relative overflow-hidden rounded-[2rem] border border-zinc-100 bg-white p-8 shadow-xl shadow-zinc-200/50 transition-all hover:scale-[1.02] dark:bg-zinc-900 dark:border-zinc-800 dark:shadow-none"
+              transition={{ delay: index * 0.05, duration: 0.5 }}
+              className={cn(
+                "group relative flex flex-col items-center text-center p-10 transition-all duration-300",
+                "hover:bg-zinc-50/50 dark:hover:bg-zinc-900/30",
+                "border-zinc-200 dark:border-zinc-800",
+                index < 3 ? "lg:border-b" : "",
+                index % 3 !== 2 ? "lg:border-r border-dotted" : "",
+                "border-b md:border-b lg:border-b-0",
+                index % 2 !== 1 ? "md:border-r border-dotted lg:border-r" : "md:border-r-0 lg:border-r"
+              )}
             >
-              {/* Subtle hover icon background */}
-              <div className={cn("absolute inset-0 opacity-0 transition-opacity group-hover:opacity-5", reason.bg)} />
-              
-              <div className="relative flex flex-col items-center text-center space-y-6">
-                <div className={cn("flex h-20 w-20 items-center justify-center rounded-3xl transition-transform duration-500 group-hover:scale-110", reason.bg)}>
-                  <reason.icon className={cn("h-10 w-10", reason.color)} strokeWidth={1.5} />
-                </div>
-                <div className="space-y-3">
-                  <h3 className="text-xl font-bold tracking-tight text-zinc-900 dark:text-white group-hover:text-primary transition-colors">
-                    {reason.title}
-                  </h3>
-                  <p className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400 font-medium">
-                    {reason.description}
-                  </p>
-                </div>
+              <motion.div
+                whileHover={{ scale: 1.1, y: -5 }}
+                className={cn(
+                  "mb-6 flex h-16 w-16 items-center justify-center rounded-2xl transition-all duration-300 shadow-sm group-hover:shadow-md group-hover:shadow-current/5",
+                  reason.bg
+                )}
+              >
+                <reason.icon
+                  className={cn("h-8 w-8 stroke-[1.5] transition-transform duration-500 group-hover:rotate-6", reason.color)}
+                />
+              </motion.div>
+
+              <div className="space-y-3 transition-transform duration-300 group-hover:translate-y-[-2px]">
+                <h3 className="text-lg font-bold tracking-tight text-zinc-900 dark:text-white">
+                  {reason.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-zinc-500 dark:text-zinc-400">
+                  {reason.description}
+                </p>
               </div>
             </motion.div>
           ))}

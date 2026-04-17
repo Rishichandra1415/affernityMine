@@ -1,21 +1,22 @@
-import { 
-  HeroSection, 
-  StatsSection, 
-  ProcessSection, 
-  WhyChooseUs, 
-  EnquirySection, 
-  ServicesSection, 
-  ProjectsSection, 
-  TestimonialsSection 
+import {
+  HeroSection,
+  StatsSection,
+  ProcessSection,
+  WhyChooseUs,
+  EnquirySection,
+  ServicesSection,
+  ProjectsSection,
+  TestimonialsSection
 } from "@/features/home";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white dark:bg-black">
       <HeroSection />
-      <StatsSection />
-      <ServicesSection />
       <WhyChooseUs />
+      <ServicesSection />
+
+      <StatsSection />
       <ProcessSection />
       <ProjectsSection />
       <TestimonialsSection />

@@ -1,90 +1,85 @@
-
 "use client";
-import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
+import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { Building2, Trophy, Map, Users } from "lucide-react";
 import { cn } from "@/shared/lib/utils";
 
-// Refined premium color palette for stats
-const statColors = {
-  delivered: { text: "text-cyan-700", bg: "bg-cyan-50", icon: "text-cyan-600" },
-  excellence: { text: "text-amber-600", bg: "bg-amber-50", icon: "text-amber-500" },
-  states: { text: "text-emerald-700", bg: "bg-emerald-50", icon: "text-emerald-600" },
-  clients: { text: "text-indigo-700", bg: "bg-indigo-50", icon: "text-indigo-600" },
-};
+// Smooth Counter Component
+function Counter({ value }: { value: string }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+  const numericValue = parseInt(value.replace(/[^0-9]/g, "")) || 0;
+  const suffix = value.replace(/[0-9]/g, "");
+
+  const spring = useSpring(0, { stiffness: 40, damping: 20 });
+  const display = useTransform(spring, (current) => Math.floor(current));
+
+  useEffect(() => {
+    if (isInView) spring.set(numericValue);
+  }, [isInView, spring, numericValue]);
+
+  return (
+    <span ref={ref}>
+      <motion.span>{display}</motion.span>
+      {suffix}
+    </span>
+  );
+}
 
 const stats = [
   {
     label: "Projects Delivered",
     value: "150+",
     icon: Building2,
-    color: statColors.delivered.text,
-    bg: statColors.delivered.bg,
-    iconColor: statColors.delivered.icon,
   },
   {
     label: "Years Excellence",
     value: "15+",
     icon: Trophy,
-    color: statColors.excellence.text,
-    bg: statColors.excellence.bg,
-    iconColor: statColors.excellence.icon,
   },
   {
     label: "States Covered",
     value: "25",
     icon: Map,
-    color: statColors.states.text,
-    bg: statColors.states.bg,
-    iconColor: statColors.states.icon,
   },
   {
     label: "Happy Clients",
     value: "100%",
     icon: Users,
-    color: statColors.clients.text,
-    bg: statColors.clients.bg,
-    iconColor: statColors.clients.icon,
   },
 ];
 
 export function StatsSection() {
   return (
-    <section className="relative z-20 -mt-16 px-4 sm:px-6 lg:px-8"> {/* Adjusted negative margin for better vertical balance */}
-      <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="flex flex-col items-stretch overflow-hidden rounded-[2.5rem] bg-white shadow-2xl shadow-primary/10 dark:bg-zinc-900 lg:flex-row lg:items-center border border-zinc-100" // Refined corner size and shadow box style, added subtle border
-        >
+    <section className="relative z-20 w-full bg-white border-y border-zinc-100 py-12 dark:bg-zinc-950 dark:border-zinc-800">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center justify-between">
           {stats.map((stat, index) => (
             <div
               key={index}
               className={cn(
-                "group relative flex flex-1 flex-col items-center border-zinc-100 p-10 text-center transition-colors hover:bg-zinc-50 dark:border-zinc-800 dark:hover:bg-zinc-800/50 lg:p-12", // Refined padding and vertical space
-                index !== stats.length - 1 && "border-b lg:border-b-0 lg:border-r border-zinc-100" // Subtler divider color
+                "flex flex-1 flex-col items-center text-center p-8 lg:py-4",
+                // Screenshot jaisa dotted divider
+                index !== stats.length - 1 && "w-full lg:w-auto border-b lg:border-b-0 lg:border-r border-dotted border-zinc-300 dark:border-zinc-700"
               )}
             >
-              {/* Refined Background Glow */}
-              <div className={cn("absolute inset-0 opacity-0 transition-opacity group-hover:opacity-10", stat.bg)} />
-              
-              <div className="relative flex flex-col items-center space-y-6"> {/* Increased vertical gap between elements */}
-                <div className={cn("flex h-18 w-18 items-center justify-center rounded-2xl transition-transform duration-500 group-hover:scale-105 group-hover:rotate-3 border border-zinc-100", stat.bg)}> {/* Refined icon container size, animation, and border */}
-                  <stat.icon className={cn("h-9 w-9", stat.iconColor)} /> {/* Larger icon for visual impact */}
-                </div>
-                <div className="space-y-1">
-                  <h3 className={cn("text-4xl font-black tracking-tighter sm:text-5xl transition-colors group-hover:text-opacity-80", stat.color)}> {/* Refined number typography and scaling, added hover opacity effect */}
-                    {stat.value}
-                  </h3>
-                  <p className="text-sm font-semibold tracking-wide text-zinc-600 dark:text-zinc-300"> {/* Refined label typography, larger size, better color, less extreme tracking */}
-                    {stat.label}
-                  </p>
-                </div>
+              {/* Icon - Minimalist black/zinc look */}
+              <div className="mb-6 flex h-12 w-12 items-center justify-center">
+                <stat.icon className="h-10 w-10 stroke-[1.5] text-zinc-800 dark:text-zinc-200" />
+              </div>
+
+              {/* Stats Text */}
+              <div className="flex flex-col items-center">
+                <h3 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-3xl">
+                  <Counter value={stat.value} />
+                </h3>
+                <p className="mt-2 text-sm font-medium text-zinc-500 dark:text-zinc-400 uppercase tracking-wider">
+                  {stat.label}
+                </p>
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -47,13 +47,13 @@ export function ProductGallery({ images }: ProductGalleryProps) {
 
           {/* Navigation Buttons */}
           <div className="absolute inset-0 flex items-center justify-between p-4 sm:p-8">
-            <button 
+            <button
               onClick={prevSlide}
               className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-white transition-all hover:bg-white hover:text-zinc-900"
             >
               <ChevronLeft className="h-6 w-6" />
             </button>
-            <button 
+            <button
               onClick={nextSlide}
               className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 backdrop-blur-md text-white transition-all hover:bg-white hover:text-zinc-900"
             >
@@ -67,17 +67,16 @@ export function ProductGallery({ images }: ProductGalleryProps) {
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                className={`h-1.5 rounded-full transition-all ${
-                  idx === currentIndex ? "w-8 bg-primary" : "w-2 bg-white/30"
-                }`}
+                className={`h-1.5 rounded-full transition-all ${idx === currentIndex ? "w-8 bg-primary" : "w-2 bg-white/30"
+                  }`}
               />
             ))}
           </div>
         </div>
-        
+
         {/* Gallery Caption/Note */}
         <div className="mt-8 text-center text-sm font-medium uppercase tracking-widest text-zinc-500">
-           Featured Project Installations
+          Featured Project Installations
         </div>
       </div>
     </section>
