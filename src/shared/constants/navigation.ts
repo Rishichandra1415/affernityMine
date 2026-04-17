@@ -33,16 +33,13 @@ export const mainNavigation: NavItemWithChildren[] = [
       { label: "Squash & Padel Courts", href: "/infrastructure/squash-padel-courts" },
       { label: "Cricket Pitch", href: "/infrastructure/cricket-pitch" },
       { label: "Hockey Court", href: "/infrastructure/hockey-court" },
-      
       // Parks & Leisure
       { label: "Children's Park", href: "/infrastructure/children-park" },
       { label: "Outdoor Gym", href: "/infrastructure/outdoor-gym" },
-      { label: "Swimming Pool", href: "/infrastructure/swimming-pool" },
-      
+      { label: "Swimming Pool", href: "/infrastructure/swimming-pool" },      
       // Professional Services
       { label: "Turnkey Sports Projects", href: "/infrastructure/turnkey-sports-projects" },
-      { label: "Maintenance & AMC", href: "/infrastructure/maintenance-and-amc" },
-      
+      { label: "Maintenance & AMC", href: "/infrastructure/maintenance-and-amc" },      
       // Fundamentals
       { label: "Gym Flooring", href: "/infrastructure/gym-flooring" },
       { label: "Asphalt Base", href: "/infrastructure/asphalt-base" },

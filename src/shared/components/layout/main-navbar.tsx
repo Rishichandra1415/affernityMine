@@ -3,7 +3,7 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronDown, MoveRight } from "lucide-react";
+import { Menu, X, ChevronDown, MoveRight, Download } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { cn } from "@/shared/lib/utils";
@@ -126,8 +126,10 @@ export function MainNavbar() {
             "ml-4 pl-4 border-l transition-colors duration-300",
             displaySolid ? "border-zinc-200 dark:border-zinc-800" : "border-white/20"
           )}>
-            <Button className="rounded-full px-6 font-semibold shadow-md transition-transform hover:scale-105 active:scale-95" asChild>
-              <Link href="/get-a-quote">Get a Quote</Link>
+            <Button className="rounded-full px-6 font-semibold shadow-md transition-transform hover:scale-105 active:scale-95 gap-2" asChild>
+              <a href="/AaffinitySportsInfraCompanyProfile (1) (2).pdf" download target="_blank" rel="noopener noreferrer">
+                Download Profile <Download className="h-4 w-4 hidden md:inline-block" />
+              </a>
             </Button>
           </div>
         </div>
@@ -168,9 +170,9 @@ export function MainNavbar() {
                 ))}
                 <div className="pt-6">
                   <Button className="w-full justify-between rounded-xl py-6 text-base font-semibold shadow-md" asChild onClick={() => setIsOpen(false)}>
-                    <Link href="/get-a-quote">
-                      Get a Quote <MoveRight className="h-5 w-5" />
-                    </Link>
+                    <a href="/AaffinitySportsInfraCompanyProfile (1) (2).pdf" download target="_blank" rel="noopener noreferrer">
+                      Download Profile <Download className="h-5 w-5" />
+                    </a>
                   </Button>
                 </div>
               </nav>

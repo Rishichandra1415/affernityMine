@@ -7,8 +7,13 @@ export function ProjectHero() {
     <section className="relative overflow-hidden bg-zinc-950 pt-32 pb-20 sm:pt-48 sm:pb-32">
       {/* Background patterns */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/20 blur-[120px] h-[500px] w-[500px]" />
-        <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 rounded-full bg-primary/10 blur-[120px] h-[400px] w-[400px]" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-25 mix-blend-luminosity xl:bg-fixed" 
+          style={{ backgroundImage: `url('/images/projects/multisport.png')` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-zinc-950/80 to-zinc-950" />
+        <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 rounded-full bg-primary/30 blur-[120px] h-[500px] w-[500px]" />
+        <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 rounded-full bg-primary/20 blur-[120px] h-[400px] w-[400px]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">

@@ -25,7 +25,13 @@ interface FormContainerProps {
 function FormContainer({ children, title, subtitle }: FormContainerProps) {
   return (
     <section className="relative overflow-hidden bg-zinc-50 py-24 sm:py-32 dark:bg-zinc-900/50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 z-0">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-[0.03] dark:opacity-[0.05] xl:bg-fixed" 
+          style={{ backgroundImage: `url('/images/projects/track.png')` }}
+        />
+      </div>
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center mb-16">
           <h2 className="text-3xl font-black tracking-tight text-zinc-900 sm:text-5xl dark:text-white">
             {title}
