@@ -250,7 +250,7 @@ export function MainFooter() {
 
             <div className="flex space-x-6 text-[11px] font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
               <Link href="/privacy" className="hover:text-[#00b341] transition-colors">Privacy</Link>
-              <Link href="/cookies" className="hover:text-[#00b341] transition-colors">Cookies</Link>
+              {/* <Link href="/cookies" className="hover:text-[#00b341] transition-colors">Cookies</Link> */}
               <Link href="/terms" className="hover:text-[#00b341] transition-colors">Terms</Link>
             </div>
 
