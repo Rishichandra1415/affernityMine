@@ -10,7 +10,7 @@ interface InfraHeroProps {
 
 export function InfraHero({ infra }: InfraHeroProps) {
   return (
-    <section className="relative h-[55vh] min-h-[450px] w-full overflow-hidden bg-zinc-950">
+    <section className="relative w-full overflow-hidden bg-zinc-950 pt-32 pb-16">
       <motion.div 
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
@@ -29,7 +29,7 @@ export function InfraHero({ infra }: InfraHeroProps) {
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/60 to-transparent" />
       </motion.div>
 
-      <div className="container relative z-10 mx-auto flex h-full flex-col justify-center px-4 sm:px-6 lg:px-8">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl space-y-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

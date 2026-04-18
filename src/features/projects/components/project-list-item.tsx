@@ -13,7 +13,7 @@ interface ProjectListItemProps {
 
 export function ProjectListItem({ project, reverse }: ProjectListItemProps) {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24 lg:py-32">
+    <section className="relative overflow-hidden py-10 sm:py-16 lg:py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className={cn(
           "flex flex-col items-center gap-12 lg:gap-20",

@@ -10,7 +10,7 @@ interface ProductHeroProps {
 
 export function ProductHero({ product }: ProductHeroProps) {
   return (
-    <section className="relative h-[80vh] min-h-[600px] w-full overflow-hidden bg-zinc-950">
+    <section className="relative h-[80vh] min-h-[600px] w-full overflow-hidden bg-zinc-950 pt-32">
       {/* Background Image */}
       <motion.div 
         initial={{ scale: 1.1 }}

@@ -127,7 +127,7 @@ export function MainNavbar() {
             displaySolid ? "border-zinc-200 dark:border-zinc-800" : "border-white/20"
           )}>
             <Button className="rounded-full px-6 font-semibold shadow-md transition-transform hover:scale-105 active:scale-95 gap-2" asChild>
-              <a href="/AaffinitySportsInfraCompanyProfile (1) (2).pdf" download target="_blank" rel="noopener noreferrer">
+              <a href="/AaffinitySportsInfraCompanyProfile (1) (2).pdf" target="_blank" rel="noopener noreferrer">
                 Download Brochure <Download className="h-4 w-4 hidden md:inline-block" />
               </a>
             </Button>
@@ -172,7 +172,7 @@ export function MainNavbar() {
                   ))}
                   <div className="pt-6">
                     <Button className="w-full justify-between rounded-xl py-6 text-base font-semibold shadow-md" asChild onClick={() => setIsOpen(false)}>
-                      <a href="/AaffinitySportsInfraCompanyProfile (1) (2).pdf" download target="_blank" rel="noopener noreferrer">
+                      <a href="/AaffinitySportsInfraCompanyProfile (1) (2).pdf" target="_blank" rel="noopener noreferrer">
                         Download Brochure <Download className="h-5 w-5" />
                       </a>
                     </Button>

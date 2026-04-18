@@ -19,9 +19,14 @@ export default function AboutPage() {
             world-class arenas that inspire excellence and safety.
           </p>
         </div>
-        {/* Background Decorative */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/20 blur-[120px] rounded-full" />
+        {/* Background Decorative Pattern */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay xl:bg-fixed" 
+            style={{ backgroundImage: `url('/images/projects/track.png')` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-zinc-900/50 to-zinc-900" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
         </div>
       </section>
 

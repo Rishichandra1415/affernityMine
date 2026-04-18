@@ -32,7 +32,7 @@ const contactDetails = [
 
 export function ContactInfo() {
   return (
-    <section className="bg-white py-24 sm:py-32 dark:bg-zinc-950">
+    <section className="bg-white py-12 sm:py-16 dark:bg-zinc-950">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {contactDetails.map((item, idx) => (
@@ -71,7 +71,7 @@ export function ContactInfo() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="mt-16 flex flex-col items-center justify-center space-y-4 rounded-[2rem] bg-zinc-900 p-8 text-center text-white sm:flex-row sm:space-y-0 sm:space-x-8 sm:p-12"
+          className="mt-8 flex flex-col items-center justify-center space-y-4 rounded-[2rem] bg-zinc-900 p-8 text-center text-white sm:flex-row sm:space-y-0 sm:space-x-8 sm:p-12"
         >
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/20 text-primary">
             <Clock className="h-6 w-6" />
