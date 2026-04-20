@@ -122,7 +122,7 @@ export function MainNavbar() {
             </NavigationMenuList>
           </NavigationMenu>
 
-          <div className={cn(
+          {/* <div className={cn(
             "ml-4 pl-4 border-l transition-colors duration-300",
             displaySolid ? "border-zinc-200 dark:border-zinc-800" : "border-white/20"
           )}>
@@ -131,7 +131,7 @@ export function MainNavbar() {
                 Download Brochure <Download className="h-4 w-4 hidden md:inline-block" />
               </a>
             </Button>
-          </div>
+          </div> */}
         </div>
 
         {/* Mobile Navigation Trigger */}
