@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import {
   productsData,
@@ -8,6 +9,28 @@ import {
   ProductApplications,
   ProductCTA
 } from "@/features/products";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const product = productsData[slug];
+
+  if (!product) {
+    return {
+      title: "Product Not Found",
+    };
+  }
+
+  return {
+    title: product.title,
+    description: `High-quality ${product.title} from Affinity Sports Infra. Specialized sports infrastructure and equipment solutions.`,
+    openGraph: {
+      title: product.title,
+      description: `High-quality ${product.title} from Affinity Sports Infra.`,
+      images: [product.heroImage],
+    },
+  };
+}
+
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
